@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "story": "Our Story",
+    "technology": "Technology",
+    "benefits": "Benefits",
+    "contact": "Contact",
+    "tagline": "Systemic farming and crop resilience solutions"
+  },
+  "hero": {
+    "badge": "GaiaNexus Private Limited",
+    "title": "Food That Nourishes. Farming That Heals.",
+    "subtitle": "Systemic farming that bridges the goodness of natural farming with chemical nitrogen efficiency — without harmful pesticides or insecticides. Built for large-scale commercial agriculture.",
+    "cta_primary": "Request Brochure",
+    "cta_secondary": "Explore Technology",
+    "stats": [
+      { "value": "Up to 40%", "label": "Lower input cost" },
+      { "value": "Up to 20%", "label": "Crop yield increase" },
+      { "value": "100%", "label": "Naturally processed inputs" }
+    ],
+    "pillars": {
+      "eyebrow": "Our Approach",
+      "title": "Built on Three Core Pillars",
+      "items": [
+        {
+          "title": "Soil Nutrient Regeneration",
+          "body": "Build rich nutrient reserves in the soil without disrupting biodiversity — for long-term fertility and productivity."
+        },
+        {
+          "title": "Plant Defense Priming",
+          "body": "Activate crops' natural immune systems against diseases, pests, and climate stress using seaweed bioactives and beneficial microbes."
+        },
+        {
+          "title": "Water Quality Enhancement",
+          "body": "Improve water utilisation and soil moisture retention for stronger root systems and more resilient harvests."
+        }
+      ]
+    }
+  },
+  "mission": {
+    "eyebrow": "Systemic Farming",
+    "title": "Conventional farming done the organic way.",
+    "body": "Gaia Nexus bridges the goodness of natural farming with the efficiency of chemical nitrogen nutrition — without harmful pesticides or insecticides. Built on soil nutrient regeneration, plant defense priming, and water quality enhancement.",
+    "points": [
+      "Designed for large-scale commercial adoption with ease of implementation.",
+      "Supports sustainable practices — safe for pollinators and soil biodiversity.",
+      "Delivers stronger crops, healthier soils, and nutrient-dense produce."
+    ],
+    "features": {
+      "eyebrow": "Why It Works",
+      "title": "Four pillars of a healthier farming system",
+      "items": [
+        {
+          "title": "Natural Farming",
+          "body": "A viable commercial operating system for sustained crop performance — not a generic sustainability claim."
+        },
+        {
+          "title": "Defense Priming",
+          "body": "Plant protection positioned as a technology layer — Bacillus subtilis forms a protective shield around roots and leaves."
+        },
+        {
+          "title": "Bioactive Inputs",
+          "body": "Seaweed actives, beneficial microbes, and plant hormones structured as technical differentiators with proven field results."
+        },
+        {
+          "title": "Soil Regeneration",
+          "body": "Soil health elevated into a business outcome tied to resilience, productivity, and long-term farm viability."
+        }
+      ]
+    }
+  },
+  "technology": {
+    "eyebrow": "Core Technology",
+    "title": "Dual Defense & Growth Technology",
+    "subtitle": "A powerful combination of beneficial microbes and marine bioactives that delivers double protection and enhanced crop growth — naturally.",
+    "cards": [
+      {
+        "title": "Dual Defense & Growth",
+        "body": "Bacillus subtilis + seaweed-based plant activators provide double protection and enhanced crop growth. Suppresses harmful pathogens while improving root development and nutrient absorption."
+      },
+      {
+        "title": "Systemic Integrated Farming",
+        "body": "Build nutrient reserve in the soil without affecting biodiversity, then stimulate plant systemic acquired response with Aman Plant Activators and beneficial microorganisms."
+      },
+      {
+        "title": "Natural Defense Priming",
+        "body": "Strengthen crops from within for natural protection. Increases resilience against diseases, pests, and climate stress while reducing chemical pesticide dependency."
+      }
+    ],
+    "process": {
+      "eyebrow": "Two-Step Process",
+      "title": "How Systemic Farming Works",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Build Nutrient Reserve",
+          "body": "Green manuring with tropical legume plants + TopCare (seaweed biochar with waste decomposer and essential microorganisms). Makes nutrient reserve in the soil without affecting soil biodiversity."
+        },
+        {
+          "step": "02",
+          "title": "Activate Plant Response",
+          "body": "Stimulate plants' systemic acquired response with Aman Plant Activators — Bio Vaccine, Oceanus, and Bio Cocktail. Enhanced nutrient uptake from soil."
+        },
+        {
+          "step": "03",
+          "title": "Resilient Output",
+          "body": "Resistance against biotic and abiotic stress. Nutrient-dense agricultural produce at an affordable cost. Does not affect pollinators."
+        }
+      ]
+    },
+    "products_section": {
+      "eyebrow": "Signature Product Line",
+      "title": "Nature-based agricultural inputs with clear role definition",
+      "items": [
+        {
+          "name": "Bio Vaccine",
+          "body": "Immunity and nutrient-uptake focused formulation for stronger crop defense."
+        },
+        {
+          "name": "Oceanus",
+          "body": "Seaweed-based support for plant vigor, growth, and sustained crop performance."
+        },
+        {
+          "name": "Bio Cocktail",
+          "body": "Organic-support blend for resilient cultivation programs and pest resistance."
+        }
+      ]
+    }
+  },
+  "benefits": {
+    "eyebrow": "Commercial Value",
+    "title": "What You Can Expect from Systemic Farming",
+    "subtitle": "Proven outcomes for farmers, distributors, and strategic partners — framed as practical business results.",
+    "items": [
+      "Reduces input costs by up to 40%",
+      "Increases crop yield by up to 20%",
+      "Improves both quality and quantity of produce",
+      "100% naturally processed inputs",
+      "Safe for pollinators and beneficial insects",
+      "Supports sustainable farming practices",
+      "Boosts crop immunity and nutrient uptake from soil",
+      "Reduces need for chemical pesticides",
+      "Does not affect soil biodiversity",
+      "Enables nutrient-dense produce at an affordable price",
+      "Supports hybrid varieties to yield more in organic way",
+      "Quick soil fertility turnover time"
+    ]
+  },
+  "products": {
+    "eyebrow": "Product Portfolio",
+    "title": "Engineered for performance. Rooted in nature.",
+    "subtitle": "Every product is 100% naturally processed and manufactured in collaboration with Indigo Aqua.",
+    "items": [
+      {
+        "name": "Seaweed-Based Liquid Fermented Organic Manure",
+        "tag": "For Paddy Cultivation",
+        "body": "Positioned for paddy cultivation — boosts immunity, improves nutrient uptake, delivers richer yields, and reduces chemical input dependence. Rich in active plant hormones, bioactive compounds, and beneficial microorganisms."
+      },
+      {
+        "name": "Bacillus Subtilis Biological Fungicide",
+        "tag": "Dual Defense",
+        "body": "Enriched with the goodness of seaweed — a biological fungicide loaded with beneficial microorganisms and packed with essential macro and micronutrients. Improves soil health and plant nutrient uptake efficiency."
+      },
+      {
+        "name": "TopCare — Seaweed Biochar",
+        "tag": "Soil Health",
+        "body": "Seaweed biochar loaded with waste decomposer and essential microorganisms. Makes nutrient reserve in the soil without affecting soil biodiversity — the foundation of systemic integrated farming."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "title": "Talk to Gaia Nexus about products, field adoption, or distribution.",
+    "body": "Request the brochure, enquire about systemic farming solutions, or start a conversation around partnerships and commercial deployment.",
+    "brochureLabel": "Request Brochure",
+    "info": {
+      "email_label": "Email us",
+      "email": "hello@gaianexus.com",
+      "phone_label": "Call us",
+      "phone": "+91 / +971 (setup ready)",
+      "collab_label": "Manufactured in collaboration with",
+      "collab": "Indigo Aqua"
+    },
+    "fields": {
+      "fullName": "Full name",
+      "email": "Email address",
+      "company": "Company / Organisation",
+      "phone": "Phone number",
+      "interest": "Area of interest",
+      "message": "Your message",
+      "brochure": "Send me the product brochure",
+      "submit": "Send Request",
+      "sending": "Sending..."
+    },
+    "interests": [
+      "Brochure request",
+      "Product enquiry",
+      "Distribution partnership",
+      "Farm adoption",
+      "General contact"
+    ]
+  },
+  "footer": {
+    "tagline": "Food That Nourishes. Farming That Heals.",
+    "description": "GaiaNexus Private Limited develops systemic farming solutions that bridge natural farming with commercial efficiency — without harmful pesticides.",
+    "nav_title": "Navigate",
+    "links": ["Our Story", "Technology", "Benefits", "Contact"],
+    "contact_title": "Contact",
+    "collaboration": "Manufactured in collaboration with Indigo Aqua",
+    "copyright": "GaiaNexus Private Limited. All rights reserved."
+  }
+}

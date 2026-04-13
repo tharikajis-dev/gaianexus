@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "story": "எங்கள் கதை",
+    "technology": "தொழில்நுட்பம்",
+    "benefits": "நன்மைகள்",
+    "contact": "தொடர்பு",
+    "tagline": "Systemic farming மற்றும் பயிர் நெகிழ்வு தீர்வுகள்"
+  },
+  "hero": {
+    "badge": "GaiaNexus Private Limited",
+    "title": "ஊட்டமளிக்கும் உணவு. குணப்படுத்தும் விவசாயம்.",
+    "subtitle": "இயற்கை விவசாயத்தின் நலனை ரசாயன நைட்ரஜன் திறனுடன் இணைக்கும் systemic farming — தீங்கான பூச்சிக்கொல்லிகள் இல்லாமல். பெரிய அளவிலான வணிக விவசாயத்திற்காக உருவாக்கப்பட்டது.",
+    "cta_primary": "பிரோஷர் கேட்கவும்",
+    "cta_secondary": "தொழில்நுட்பத்தை காண்க",
+    "stats": [
+      { "value": "40% வரை", "label": "உள்வரவு செலவு குறைவு" },
+      { "value": "20% வரை", "label": "விளைச்சல் உயர்வு" },
+      { "value": "100%", "label": "இயற்கையாக செயலாக்கப்பட்ட inputs" }
+    ],
+    "pillars": {
+      "eyebrow": "எங்கள் அணுகுமுறை",
+      "title": "மூன்று முக்கிய தூண்கள்",
+      "items": [
+        {
+          "title": "மண் சத்து மறுசீரமைப்பு",
+          "body": "Biodiversity-ஐ பாதிக்காமல் மண்ணில் சத்துக்களை சேமிக்கவும் — நீண்ட கால வளமை மற்றும் உற்பத்தித்திறனுக்காக."
+        },
+        {
+          "title": "Plant Defense Priming",
+          "body": "Seaweed bioactives மற்றும் beneficial microbes மூலம் நோய்கள், பூச்சிகள், காலநிலை அழுத்தத்திற்கு எதிராக பயிரின் இயற்கை நோய் எதிர்ப்பை செயல்படுத்துங்கள்."
+        },
+        {
+          "title": "நீர் தரம் மேம்பாடு",
+          "body": "வலுவான வேர் அமைப்புகள் மற்றும் நெகிழ்வான அறுவடைகளுக்கு நீர் பயன்பாடு மற்றும் மண் ஈரப்பதம் தக்கவைப்பை மேம்படுத்துங்கள்."
+        }
+      ]
+    }
+  },
+  "mission": {
+    "eyebrow": "Systemic Farming",
+    "title": "வணிக விவசாயம் இயற்கை வழியில்.",
+    "body": "Gaia Nexus இயற்கை விவசாயத்தின் நலனை ரசாயன நைட்ரஜன் திறனுடன் இணைக்கிறது — தீங்கான பூச்சிக்கொல்லிகள் இல்லாமல். மண் சத்து மறுசீரமைப்பு, plant defense priming, மற்றும் நீர் தரம் மேம்பாடு ஆகியவற்றை அடிப்படையாகக் கொண்டது.",
+    "points": [
+      "பெரிய அளவிலான வணிக adoption க்கு வடிவமைக்கப்பட்டது.",
+      "Pollinators மற்றும் மண் biodiversity க்கு பாதுகாப்பானது.",
+      "வலுவான பயிர்கள், ஆரோக்கியமான மண், சத்தான விளைபொருள்."
+    ],
+    "features": {
+      "eyebrow": "ஏன் வேலை செய்கிறது",
+      "title": "ஆரோக்கியமான விவசாய அமைப்பின் நான்கு தூண்கள்",
+      "items": [
+        {
+          "title": "இயற்கை விவசாயம்",
+          "body": "தொடர்ச்சியான பயிர் செயல்திறனுக்கான நடைமுறை வணிக இயக்க முறை."
+        },
+        {
+          "title": "Defense Priming",
+          "body": "Bacillus subtilis வேர்கள் மற்றும் இலைகளைச் சுற்றி பாதுகாப்பு கவசத்தை உருவாக்குகிறது."
+        },
+        {
+          "title": "Bioactive Inputs",
+          "body": "Seaweed actives, beneficial microbes, plant hormones ஆகியவை நிரூபிக்கப்பட்ட கள முடிவுகளுடன் தொழில்நுட்ப வேறுபாட்டாளர்களாக."
+        },
+        {
+          "title": "மண் மறுசீரமைப்பு",
+          "body": "மண் ஆரோக்கியம் நெகிழ்வு, உற்பத்தித்திறன், மற்றும் நீண்ட கால பண்ணை நிலைத்தன்மையுடன் இணைந்த வணிக முடிவாக."
+        }
+      ]
+    }
+  },
+  "technology": {
+    "eyebrow": "முக்கிய தொழில்நுட்பம்",
+    "title": "Dual Defense & Growth Technology",
+    "subtitle": "Beneficial microbes மற்றும் marine bioactives இன் சக்திவாய்ந்த கலவை — இரட்டை பாதுகாப்பு மற்றும் மேம்பட்ட பயிர் வளர்ச்சி — இயற்கையாக.",
+    "cards": [
+      {
+        "title": "Dual Defense & Growth",
+        "body": "Bacillus subtilis + seaweed-based plant activators இரட்டை பாதுகாப்பு மற்றும் மேம்பட்ட பயிர் வளர்ச்சி. தீங்கான pathogens-ஐ அடக்கி, வேர் வளர்ச்சி மற்றும் சத்து உறிஞ்சுதலை மேம்படுத்துகிறது."
+      },
+      {
+        "title": "Systemic Integrated Farming",
+        "body": "Biodiversity-ஐ பாதிக்காமல் மண்ணில் சத்து சேமிப்பை உருவாக்கி, Aman Plant Activators மற்றும் beneficial microorganisms மூலம் plant systemic acquired response-ஐ தூண்டுங்கள்."
+      },
+      {
+        "title": "Natural Defense Priming",
+        "body": "நோய்கள், பூச்சிகள், காலநிலை அழுத்தத்திற்கு எதிராக பயிர்களை உள்ளிருந்து வலுப்படுத்துங்கள். Chemical pesticide தேவையை குறைக்கிறது."
+      }
+    ],
+    "process": {
+      "eyebrow": "இரண்டு-படி செயல்முறை",
+      "title": "Systemic Farming எப்படி வேலை செய்கிறது",
+      "steps": [
+        {
+          "step": "01",
+          "title": "சத்து சேமிப்பை உருவாக்கு",
+          "body": "Tropical legume plants மூலம் green manuring + TopCare (seaweed biochar with waste decomposer and essential microorganisms). மண் biodiversity-ஐ பாதிக்காமல் சத்து சேமிப்பை உருவாக்குகிறது."
+        },
+        {
+          "step": "02",
+          "title": "Plant Response-ஐ செயல்படுத்து",
+          "body": "Aman Plant Activators — Bio Vaccine, Oceanus, மற்றும் Bio Cocktail மூலம் plants' systemic acquired response-ஐ தூண்டுங்கள். மண்ணிலிருந்து சத்து உறிஞ்சுதல் மேம்பட்டது."
+        },
+        {
+          "step": "03",
+          "title": "நெகிழ்வான விளைச்சல்",
+          "body": "Biotic மற்றும் abiotic stress க்கு எதிர்ப்பு. சாதகமான விலையில் சத்தான வேளாண் உற்பத்தி. Pollinators-ஐ பாதிக்காது."
+        }
+      ]
+    },
+    "products_section": {
+      "eyebrow": "தயாரிப்பு வரிசை",
+      "title": "தெளிவான பங்கு வரையறையுடன் இயற்கை அடிப்படையிலான விவசாய inputs",
+      "items": [
+        {
+          "name": "Bio Vaccine",
+          "body": "வலுவான பயிர் பாதுகாப்பிற்கான நோய் எதிர்ப்பு மற்றும் சத்து உறிஞ்சுதல் focused formulation."
+        },
+        {
+          "name": "Oceanus",
+          "body": "Plant vigor, வளர்ச்சி, மற்றும் தொடர்ச்சியான பயிர் செயல்திறனுக்கான seaweed-based support."
+        },
+        {
+          "name": "Bio Cocktail",
+          "body": "நெகிழ்வான சாகுபடி நிகழ்ச்சிகள் மற்றும் பூச்சி எதிர்ப்பிற்கான organic-support blend."
+        }
+      ]
+    }
+  },
+  "benefits": {
+    "eyebrow": "வணிக மதிப்பு",
+    "title": "Systemic Farming-இல் இருந்து என்ன எதிர்பார்க்கலாம்",
+    "subtitle": "விவசாயிகள், விநியோகஸ்தர்கள், மற்றும் strategic partners க்கான நடைமுறை வணிக முடிவுகள்.",
+    "items": [
+      "Input costs-ஐ 40% வரை குறைக்கிறது",
+      "Crop yield-ஐ 20% வரை அதிகரிக்கிறது",
+      "உற்பத்தியின் தரமும் அளவும் மேம்படுகிறது",
+      "100% இயற்கையாக செயலாக்கப்பட்ட inputs",
+      "Pollinators மற்றும் பயனுள்ள பூச்சிகளுக்கு பாதுகாப்பானது",
+      "Sustainable farming practices-ஐ ஆதரிக்கிறது",
+      "பயிர் நோய் எதிர்ப்பு மற்றும் சத்து உறிஞ்சுதலை மேம்படுத்துகிறது",
+      "Chemical pesticides தேவையை குறைக்கிறது",
+      "மண் biodiversity-ஐ பாதிக்காது",
+      "சாதகமான விலையில் சத்தான விளைபொருள்",
+      "Hybrid varieties-ஐ இயற்கை வழியில் அதிகமாக விளைவிக்க ஆதரிக்கிறது",
+      "விரைவான மண் வளம் turnover நேரம்"
+    ]
+  },
+  "products": {
+    "eyebrow": "தயாரிப்பு போர்ட்ஃபோலியோ",
+    "title": "செயல்திறனுக்காக வடிவமைக்கப்பட்டது. இயற்கையில் வேரூன்றியது.",
+    "subtitle": "ஒவ்வொரு தயாரிப்பும் 100% இயற்கையாக செயலாக்கப்பட்டு Indigo Aqua-வுடன் இணைந்து தயாரிக்கப்படுகிறது.",
+    "items": [
+      {
+        "name": "Seaweed-Based Liquid Fermented Organic Manure",
+        "tag": "நெல் சாகுபடிக்கு",
+        "body": "நெல் சாகுபடிக்காக நிலைநிறுத்தப்பட்டது — நோய் எதிர்ப்பை மேம்படுத்துகிறது, சத்து உறிஞ்சுதலை மேம்படுத்துகிறது, சத்தான விளைச்சல் வழங்குகிறது."
+      },
+      {
+        "name": "Bacillus Subtilis Biological Fungicide",
+        "tag": "இரட்டை பாதுகாப்பு",
+        "body": "Seaweed goodness, beneficial microorganisms, மற்றும் macro/micronutrients உடன் biological fungicide. மண் ஆரோக்கியம் மற்றும் plant nutrient uptake efficiency மேம்படுகிறது."
+      },
+      {
+        "name": "TopCare — Seaweed Biochar",
+        "tag": "மண் ஆரோக்கியம்",
+        "body": "Waste decomposer மற்றும் essential microorganisms உடன் seaweed biochar. மண் biodiversity-ஐ பாதிக்காமல் சத்து சேமிப்பை உருவாக்குகிறது."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "தொடர்பு கொள்ளுங்கள்",
+    "title": "தயாரிப்புகள், field adoption, அல்லது distribution குறித்து Gaia Nexus உடன் பேசுங்கள்.",
+    "body": "Brochure கேட்க, systemic farming solutions பற்றி கேட்க, அல்லது partnership மற்றும் commercial deployment குறித்து தொடர்பு கொள்ளுங்கள்.",
+    "brochureLabel": "பிரோஷர் கேட்கவும்",
+    "info": {
+      "email_label": "மின்னஞ்சல்",
+      "email": "hello@gaianexus.com",
+      "phone_label": "தொலைபேசி",
+      "phone": "+91 / +971 (setup ready)",
+      "collab_label": "கூட்டு தயாரிப்பு",
+      "collab": "Indigo Aqua"
+    },
+    "fields": {
+      "fullName": "முழு பெயர்",
+      "email": "மின்னஞ்சல் முகவரி",
+      "company": "நிறுவனம் / அமைப்பு",
+      "phone": "தொலைபேசி எண்",
+      "interest": "ஆர்வ பகுதி",
+      "message": "உங்கள் செய்தி",
+      "brochure": "தயாரிப்பு brochure அனுப்பவும்",
+      "submit": "கோரிக்கையை அனுப்பு",
+      "sending": "அனுப்பப்படுகிறது..."
+    },
+    "interests": [
+      "பிரோஷர் கோரிக்கை",
+      "தயாரிப்பு விசாரணை",
+      "Distribution partnership",
+      "Farm adoption",
+      "பொது தொடர்பு"
+    ]
+  },
+  "footer": {
+    "tagline": "ஊட்டமளிக்கும் உணவு. குணப்படுத்தும் விவசாயம்.",
+    "description": "GaiaNexus Private Limited இயற்கை விவசாயத்தை வணிக திறனுடன் இணைக்கும் systemic farming தீர்வுகளை உருவாக்குகிறது.",
+    "nav_title": "வழிசெலுத்தல்",
+    "links": ["எங்கள் கதை", "தொழில்நுட்பம்", "நன்மைகள்", "தொடர்பு"],
+    "contact_title": "தொடர்பு",
+    "collaboration": "Indigo Aqua-வுடன் இணைந்து தயாரிக்கப்படுகிறது",
+    "copyright": "GaiaNexus Private Limited. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+  }
+}
