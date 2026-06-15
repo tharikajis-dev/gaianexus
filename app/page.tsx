@@ -154,7 +154,7 @@ export default function Home() {
                   variant="outlined"
                   size="large"
                   sx={{
-                    color: "white",
+                    color: "#fff !important",
                     borderColor: "rgba(255,255,255,0.35)",
                     fontWeight: 600,
                     px: 4,
