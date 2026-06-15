@@ -109,7 +109,7 @@ export function Navbar({
               <Button
                 href="/#contact"
                 variant="contained"
-                sx={{ ml: 1, px: 3, fontWeight: 700 }}
+                sx={{ ml: 1, px: 3, fontWeight: 700, color: "white !important" }}
               >
                 {t.nav.contact}
               </Button>
@@ -174,7 +174,7 @@ export function Navbar({
             href="/#contact"
             variant="contained"
             fullWidth
-            sx={{ mt: 1 }}
+            sx={{ mt: 1, color: "white !important" }}
             onClick={() => setMobileMenuOpen(false)}
           >
             {t.nav.contact}

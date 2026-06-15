@@ -140,7 +140,7 @@ export default function Home() {
                   size="large"
                   startIcon={<Download />}
                   sx={{
-                    color: "white",
+                    color: "white !important",
                     fontWeight: 700,
                     px: 4,
                     py: 1.5,
@@ -926,7 +926,7 @@ export default function Home() {
               href="/#contact"
               variant="contained"
               size="large"
-              sx={{ fontWeight: 700, px: 4, color: "white" }}
+              sx={{ fontWeight: 700, px: 4, color: "white !important" }}
             >
               {t.partners.cta}
             </Button>
@@ -1084,7 +1084,7 @@ export default function Home() {
                   size="large"
                   fullWidth
                   startIcon={<Download />}
-                  sx={{ mt: 3, fontWeight: 700, py: 1.4 }}
+                  sx={{ mt: 3, fontWeight: 700, py: 1.4, color: "white !important" }}
                 >
                   {t.hero.cta_primary}
                 </Button>
@@ -1125,7 +1125,7 @@ export default function Home() {
               size="large"
               startIcon={<Download />}
               sx={{
-                color: "white", fontWeight: 700, px: 4,
+                color: "white !important", fontWeight: 700, px: 4,
               }}
             >
               {t.contact.brochureLabel}
