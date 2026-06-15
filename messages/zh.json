@@ -4,6 +4,8 @@
     "technology": "核心技术",
     "benefits": "商业价值",
     "contact": "联系我们",
+    "blog": "博客",
+    "testimonials": "客户评价",
     "tagline": "系统农业与作物韧性解决方案"
   },
   "hero": {
@@ -35,6 +37,17 @@
         }
       ]
     }
+  },
+  "vision": {
+    "eyebrow": "我们的愿景",
+    "title": "连接自然与技术",
+    "quote": "通过连接自然与技术革新农业，帮助农民生产富含营养、对化学品负责任的食物，同时为后代保护土壤生态系统。",
+    "impact": [
+      "改善土壤有机碳",
+      "增强植物抗病性",
+      "提升开花与结果率",
+      "可持续且具有成本效益的农业"
+    ]
   },
   "mission": {
     "eyebrow": "系统农业",
@@ -147,13 +160,18 @@
   },
   "products": {
     "eyebrow": "产品组合",
-    "title": "为性能而设计，根植于自然。",
+    "title": "Aman 系列 — 完整作物解决方案",
     "subtitle": "每款产品均经过 100% 天然加工，与 Indigo Aqua 合作生产。",
     "items": [
       {
-        "name": "海藻基液态发酵有机肥",
-        "tag": "适用于水稻种植",
-        "body": "专为水稻种植而设计——增强免疫力、改善养分吸收、提供更丰富的产量、减少化学投入品依赖。富含活性植物激素、生物活性化合物和有益微生物。"
+        "name": "Aman BioVaccine",
+        "tag": "植物免疫激活剂",
+        "body": "促进作物早期生长并激活植物防御机制。施用方式：叶面喷施、种子处理和根部施用。不影响授粉昆虫。"
+      },
+      {
+        "name": "Aman BioCocktail",
+        "tag": "促花促产增效剂",
+        "body": "促进开花、坐果，并将植株能量导向更高产量。通过叶面喷施提升品质、促进旺盛开花并促进健壮生长。"
       },
       {
         "name": "Bacillus Subtilis 生物杀菌剂",
@@ -161,9 +179,39 @@
         "body": "富含海藻精华的生物杀菌剂——装载有益微生物，富含必需大量和微量营养元素。改善土壤健康和植物养分利用效率。"
       },
       {
-        "name": "TopCare — 海藻生物炭",
-        "tag": "土壤健康",
-        "body": "装载废物分解剂和必需微生物的海藻生物炭。在不影响土壤生物多样性的前提下建立养分储备——系统集成农业的基础。"
+        "name": "Aman BioCocktail Plus",
+        "tag": "高级微生物配方",
+        "body": "富含有益微生物；可预防病原菌感染并提升植株活力。"
+      },
+      {
+        "name": "Aman Oceanus",
+        "tag": "根系与土壤活化剂",
+        "body": "利用海藻生物活性物质改善根系生长、土壤结构和保水能力。"
+      },
+      {
+        "name": "Aman TerraDigest",
+        "tag": "堆肥微生物菌群",
+        "body": "加速有机废物分解为富含养分的堆肥。"
+      },
+      {
+        "name": "Aman TerraEssence",
+        "tag": "必需微生物菌群",
+        "body": "恢复土壤微生物平衡，有效抑制有害病原体。"
+      },
+      {
+        "name": "Aman TerraNPK",
+        "tag": "养分活化菌群",
+        "body": "提高氮、磷、钾的可利用性，便于植物高效吸收。"
+      },
+      {
+        "name": "Aman Terraformer",
+        "tag": "发酵有机肥（粉剂）",
+        "body": "改善土壤有机碳含量和长期肥力。固体配方。"
+      },
+      {
+        "name": "TopCare & TerraBooster",
+        "tag": "海藻颗粒与凝胶",
+        "body": "缓释颗粒可持续促进生长；浓缩凝胶可快速恢复植株抗逆能力。在不影响土壤生物多样性的前提下建立土壤养分储备。"
       }
     ]
   },
@@ -174,9 +222,11 @@
     "brochureLabel": "申请宣传册",
     "info": {
       "email_label": "发送邮件",
-      "email": "hello@gaianexus.com",
+      "email": "gaianexustech@gmail.com",
+      "website_label": "访问我们",
+      "website": "www.gaianexus.com",
       "phone_label": "致电",
-      "phone": "+91 / +971（待配置）",
+      "phones": ["+91 7708240744", "+91 9597342014"],
       "collab_label": "合作生产",
       "collab": "Indigo Aqua"
     },
@@ -207,5 +257,75 @@
     "contact_title": "联系方式",
     "collaboration": "与 Indigo Aqua 合作生产",
     "copyright": "GaiaNexus Private Limited 版权所有。"
+  },
+  "partners": {
+    "eyebrow": "合作网络",
+    "title": "营销与分销合作伙伴",
+    "subtitle": "我们与生产、分销和经销合作伙伴紧密合作，将系统农业解决方案带给各地区的农民。",
+    "items": [
+      { "name": "Indigo Aqua", "role": "生产合作伙伴" },
+      { "name": "区域分销商", "role": "田间分销" },
+      { "name": "农业投入品经销商", "role": "零售网络" },
+      { "name": "农民合作社", "role": "社区推广" }
+    ],
+    "cta": "成为合作伙伴"
+  },
+  "blog": {
+    "eyebrow": "最新动态",
+    "title": "新闻与洞察",
+    "subtitle": "Gaia Nexus 关于系统农业、产品发布和田间成果的最新动态。",
+    "posts": [
+      {
+        "date": "2026-05-12",
+        "tag": "产品发布",
+        "title": "Aman 系列全新发布——10 款产品实现全面作物管理",
+        "excerpt": "我们扩展后的 Aman 系列现已涵盖免疫力、开花、根系健康、土壤再生和堆肥处理——为商业种植者提供完整的系统农业工具包。"
+      },
+      {
+        "date": "2026-04-02",
+        "tag": "田间成果",
+        "title": "系统农业助力水稻产量提升最高达 20%",
+        "excerpt": "在采用我们的两步系统农业方案后，多个稻田的产量、土壤有机碳含量和抗虫能力均显著提升。"
+      },
+      {
+        "date": "2026-02-18",
+        "tag": "合作伙伴关系",
+        "title": "Gaia Nexus 与 Indigo Aqua 达成海藻生物活性物质合作",
+        "excerpt": "我们与 Indigo Aqua 的合作，强化了 Aman 系列产品中所用海藻基植物激活剂的供应链。"
+      },
+      {
+        "date": "2026-01-10",
+        "tag": "可持续发展",
+        "title": "为什么防御激活对授粉友好型农业至关重要",
+        "excerpt": "采用 Bacillus subtilis 和海藻生物活性物质的植物防御激活，能从内部增强作物——同时不伤害授粉昆虫或其他有益昆虫。"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "客户评价",
+    "title": "农户怎么说",
+    "subtitle": "来自采用 Gaia Nexus 系统农业解决方案的农户和合作伙伴的真实反馈。",
+    "items": [
+      {
+        "quote": "自从改用 Aman 系列后，我们的稻田长势更强健，虫害问题明显减少，投入成本也降低了。",
+        "name": "S. Murugan",
+        "role": "水稻种植户，泰米尔纳德邦"
+      },
+      {
+        "quote": "Bio Vaccine 和 Bio Cocktail 的组合在一个生长季内就改善了我们蔬菜作物的开花和坐果情况。",
+        "name": "R. Lakshmi",
+        "role": "蔬菜种植户"
+      },
+      {
+        "quote": "作为经销商，GaiaNexus 产品稳定的品质和天然加工工艺，让我们很容易向农户网络推荐。",
+        "name": "K. Anbarasu",
+        "role": "农业投入品经销商"
+      },
+      {
+        "quote": "使用 TopCare 和 TerraBooster 两个生长季后，我们农场的土壤健康明显改善。",
+        "name": "P. Devaraj",
+        "role": "商业农场主"
+      }
+    ]
   }
 }

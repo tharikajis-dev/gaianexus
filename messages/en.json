@@ -4,6 +4,8 @@
     "technology": "Technology",
     "benefits": "Benefits",
     "contact": "Contact",
+    "blog": "Blog",
+    "testimonials": "Testimonials",
     "tagline": "Systemic farming and crop resilience solutions"
   },
   "hero": {
@@ -35,6 +37,17 @@
         }
       ]
     }
+  },
+  "vision": {
+    "eyebrow": "Our Vision",
+    "title": "Bridging Nature & Technology",
+    "quote": "To revolutionize agriculture by bridging nature and technology, enabling farmers to produce nutrient-rich, chemical-responsible food while preserving soil ecosystems for future generations.",
+    "impact": [
+      "Improved soil organic carbon",
+      "Enhanced plant disease resistance",
+      "Increased flowering & fruiting",
+      "Sustainable, cost-effective farming"
+    ]
   },
   "mission": {
     "eyebrow": "Systemic Farming",
@@ -147,13 +160,18 @@
   },
   "products": {
     "eyebrow": "Product Portfolio",
-    "title": "Engineered for performance. Rooted in nature.",
+    "title": "Aman Series — Complete Crop Solutions",
     "subtitle": "Every product is 100% naturally processed and manufactured in collaboration with Indigo Aqua.",
     "items": [
       {
-        "name": "Seaweed-Based Liquid Fermented Organic Manure",
-        "tag": "For Paddy Cultivation",
-        "body": "Positioned for paddy cultivation — boosts immunity, improves nutrient uptake, delivers richer yields, and reduces chemical input dependence. Rich in active plant hormones, bioactive compounds, and beneficial microorganisms."
+        "name": "Aman BioVaccine",
+        "tag": "Plant Immunity Activator",
+        "body": "Enhances early crop establishment and activates plant defense mechanisms. Mode of application: foliar spray, seed treatment, and root feeding. Does not affect pollinators."
+      },
+      {
+        "name": "Aman BioCocktail",
+        "tag": "Flowering & Yield Enhancer",
+        "body": "Boosts flowering, fruit setting, and directs plant energy toward higher yield. Enhances quality, encourages vibrant flowering, and promotes robust plant growth via foliar spray."
       },
       {
         "name": "Bacillus Subtilis Biological Fungicide",
@@ -161,9 +179,39 @@
         "body": "Enriched with the goodness of seaweed — a biological fungicide loaded with beneficial microorganisms and packed with essential macro and micronutrients. Improves soil health and plant nutrient uptake efficiency."
       },
       {
-        "name": "TopCare — Seaweed Biochar",
-        "tag": "Soil Health",
-        "body": "Seaweed biochar loaded with waste decomposer and essential microorganisms. Makes nutrient reserve in the soil without affecting soil biodiversity — the foundation of systemic integrated farming."
+        "name": "Aman BioCocktail Plus",
+        "tag": "Advanced Microbial Formula",
+        "body": "Rich in beneficial microbes; prevents pathogenic infections while improving vigor."
+      },
+      {
+        "name": "Aman Oceanus",
+        "tag": "Root & Soil Vitalizer",
+        "body": "Improves root growth, soil structure, and water retention using seaweed bioactives."
+      },
+      {
+        "name": "Aman TerraDigest",
+        "tag": "Composting Microbial Consortium",
+        "body": "Accelerates decomposition of organic waste into nutrient-rich compost."
+      },
+      {
+        "name": "Aman TerraEssence",
+        "tag": "Essential Microorganism Consortium",
+        "body": "Restores soil microbial balance and suppresses harmful pathogens effectively."
+      },
+      {
+        "name": "Aman TerraNPK",
+        "tag": "Nutrient Mobilizing Consortium",
+        "body": "Enhances availability of N, P & K for efficient plant uptake from soil."
+      },
+      {
+        "name": "Aman Terraformer",
+        "tag": "Fermented Organic Manure (Powder)",
+        "body": "Improves soil organic carbon and long-term fertility. Solid formulation."
+      },
+      {
+        "name": "TopCare & TerraBooster",
+        "tag": "Seaweed Granules & Gel",
+        "body": "Slow-release granules for sustained growth; concentrated gel for rapid stress recovery. Makes a nutrient reserve in the soil without affecting soil biodiversity."
       }
     ]
   },
@@ -174,9 +222,11 @@
     "brochureLabel": "Request Brochure",
     "info": {
       "email_label": "Email us",
-      "email": "hello@gaianexus.com",
+      "email": "gaianexustech@gmail.com",
+      "website_label": "Visit us",
+      "website": "www.gaianexus.com",
       "phone_label": "Call us",
-      "phone": "+91 / +971 (setup ready)",
+      "phones": ["+91 7708240744", "+91 9597342014"],
       "collab_label": "Manufactured in collaboration with",
       "collab": "Indigo Aqua"
     },
@@ -207,5 +257,75 @@
     "contact_title": "Contact",
     "collaboration": "Manufactured in collaboration with Indigo Aqua",
     "copyright": "GaiaNexus Private Limited. All rights reserved."
+  },
+  "partners": {
+    "eyebrow": "Our Network",
+    "title": "Marketing & Distribution Partners",
+    "subtitle": "We work with manufacturing, distribution, and dealer partners to bring systemic farming solutions to farmers across regions.",
+    "items": [
+      { "name": "Indigo Aqua", "role": "Manufacturing Partner" },
+      { "name": "Regional Distributors", "role": "Farm-Gate Distribution" },
+      { "name": "Agri Input Dealers", "role": "Retail Network" },
+      { "name": "Farmer Cooperatives", "role": "Community Adoption" }
+    ],
+    "cta": "Become a Partner"
+  },
+  "blog": {
+    "eyebrow": "Updates",
+    "title": "News & Insights",
+    "subtitle": "Latest updates on systemic farming, product launches, and field results from Gaia Nexus.",
+    "posts": [
+      {
+        "date": "2026-05-12",
+        "tag": "Product Launch",
+        "title": "Introducing the Aman Series — 10 Products for Complete Crop Care",
+        "excerpt": "Our expanded Aman Series now covers immunity, flowering, root health, soil regeneration, and composting — a complete systemic farming toolkit for commercial growers."
+      },
+      {
+        "date": "2026-04-02",
+        "tag": "Field Results",
+        "title": "Paddy Trials Show Up to 20% Yield Increase with Systemic Farming",
+        "excerpt": "Field trials across paddy farms recorded notable improvements in yield, soil organic carbon, and pest resilience after adopting our two-step systemic farming protocol."
+      },
+      {
+        "date": "2026-02-18",
+        "tag": "Partnership",
+        "title": "Gaia Nexus Partners with Indigo Aqua for Seaweed-Based Bioactives",
+        "excerpt": "Our collaboration with Indigo Aqua strengthens the supply chain for seaweed-based plant activators used across the Aman product line."
+      },
+      {
+        "date": "2026-01-10",
+        "tag": "Sustainability",
+        "title": "Why Defense Priming Matters for Pollinator-Safe Agriculture",
+        "excerpt": "Plant defense priming with Bacillus subtilis and seaweed bioactives strengthens crops from within — without harming pollinators or beneficial insects."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What Our Farmers Say",
+    "subtitle": "Feedback from farmers and partners who have adopted Gaia Nexus systemic farming solutions.",
+    "items": [
+      {
+        "quote": "Since switching to the Aman Series, our paddy fields show stronger growth and noticeably fewer pest issues. Input costs have come down too.",
+        "name": "S. Murugan",
+        "role": "Paddy Farmer, Tamil Nadu"
+      },
+      {
+        "quote": "The Bio Vaccine and Bio Cocktail combination improved flowering and fruit setting in our vegetable crops within one season.",
+        "name": "R. Lakshmi",
+        "role": "Vegetable Grower"
+      },
+      {
+        "quote": "As a distributor, the consistent quality and natural processing of GaiaNexus products make it easy to recommend to our farmer network.",
+        "name": "K. Anbarasu",
+        "role": "Agri Input Distributor"
+      },
+      {
+        "quote": "Soil health on our farm has visibly improved after two seasons of TopCare and TerraBooster application.",
+        "name": "P. Devaraj",
+        "role": "Commercial Farm Owner"
+      }
+    ]
   }
 }

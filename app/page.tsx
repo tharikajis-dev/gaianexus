@@ -1,18 +1,17 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import {
   Agriculture,
   AutoAwesome,
   Biotech,
   CheckCircle,
-  Close,
+  Download,
   EmojiNature,
   Forest,
   Language,
   LocalFlorist,
   MailOutline,
-  Menu,
   PhoneInTalk,
   Science,
   Spa,
@@ -20,8 +19,6 @@ import {
   WbSunny,
 } from "@mui/icons-material";
 import {
-  Alert,
-  AppBar,
   Avatar,
   Box,
   Button,
@@ -30,255 +27,49 @@ import {
   Chip,
   Container,
   Divider,
-  Drawer,
-  FormControlLabel,
   Grid,
-  IconButton,
-  MenuItem,
   Paper,
   Stack,
-  Switch,
-  TextField,
-  Toolbar,
   Typography,
 } from "@mui/material";
 
-import { type Locale, type Messages, getMessages, localeLabels, locales } from "@/app/i18n/translations";
-
-type FormState =
-  | { status: "idle" }
-  | { status: "submitting" }
-  | { status: "success"; message: string }
-  | { status: "error"; message: string };
+import { type Messages, getMessages } from "@/app/i18n/translations";
+import { useLocale } from "@/app/hooks/useLocale";
+import { Navbar } from "@/app/components/Navbar";
+import { Footer } from "@/app/components/Footer";
+import { SectionEyebrow } from "@/app/components/SectionEyebrow";
 
 export default function Home() {
-  const [locale, setLocale] = useState<Locale>("en");
-  const [formState, setFormState] = useState<FormState>({ status: "idle" });
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [locale, setLocale] = useLocale();
   const t: Messages = getMessages(locale);
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem("gaia-locale") as Locale | null;
-    if (saved && locales.includes(saved)) setLocale(saved);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = locale;
-    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
-    window.localStorage.setItem("gaia-locale", locale);
-  }, [locale]);
-
-  const interestOptions = useMemo(() => t.contact.interests, [t]);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    setFormState({ status: "submitting" });
-
-    const payload = {
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
-      company: formData.get("company"),
-      phone: formData.get("phone"),
-      interest: formData.get("interest"),
-      requestBrochure: formData.get("requestBrochure") === "on",
-      message: formData.get("message"),
-    };
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const data = (await response.json()) as { message?: string };
-      if (!response.ok) throw new Error(data.message ?? "Something went wrong.");
-
-      form.reset();
-      setFormState({ status: "success", message: data.message ?? "Request sent successfully." });
-    } catch (error) {
-      setFormState({
-        status: "error",
-        message: error instanceof Error ? error.message : "Unable to send request.",
-      });
-    }
-  }
-
-  const navLinks = [
-    { label: t.nav.story, href: "#story" },
-    { label: t.nav.technology, href: "#technology" },
-    { label: t.nav.benefits, href: "#benefits" },
-  ];
-
   return (
-    <Box className="min-h-screen" sx={{ bgcolor: "background.default" }}>
-      {/* ── NAVBAR ── */}
-      <AppBar
-        position="sticky"
-        color="transparent"
-        elevation={0}
-        sx={{
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(30,91,67,0.10)",
-          bgcolor: "rgba(255,255,255,0.90)",
-        }}
-      >
-        <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 72 }, gap: 2, justifyContent: "space-between" }}>
-            {/* Logo */}
-            <Stack direction="row" spacing={1.5} alignItems="center">
-              <Box
-                sx={{
-                  width: 42,
-                  height: 42,
-                  borderRadius: "12px",
-                  background: "linear-gradient(135deg, #1E5B43 0%, #2D8C5E 100%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 4px 12px rgba(30,91,67,0.30)",
-                }}
-              >
-                <EmojiNature sx={{ color: "white", fontSize: 22 }} />
-              </Box>
-              <Box>
-                <Typography
-                  variant="subtitle1"
-                  fontWeight={800}
-                  sx={{ lineHeight: 1.1, color: "primary.dark", letterSpacing: "-0.02em" }}
-                >
-                  Gaia Nexus
-                </Typography>
-                <Typography variant="caption" sx={{ color: "text.secondary", fontSize: "0.68rem" }}>
-                  Private Limited
-                </Typography>
-              </Box>
-            </Stack>
-
-            {/* Desktop Nav */}
-            <Stack
-              direction="row"
-              spacing={0.5}
-              alignItems="center"
-              sx={{ display: { xs: "none", md: "flex" } }}
-            >
-              {navLinks.map((link) => (
-                <Button
-                  key={link.href}
-                  href={link.href}
-                  color="inherit"
-                  sx={{
-                    fontWeight: 600,
-                    color: "text.primary",
-                    "&:hover": { color: "primary.main", bgcolor: "rgba(30,91,67,0.06)" },
-                  }}
-                >
-                  {link.label}
-                </Button>
-              ))}
-              <Button
-                href="#contact"
-                variant="contained"
-                sx={{ ml: 1, px: 3, fontWeight: 700 }}
-              >
-                {t.nav.contact}
-              </Button>
-              <TextField
-                select
-                size="small"
-                value={locale}
-                onChange={(e) => setLocale(e.target.value as Locale)}
-                sx={{
-                  ml: 1.5,
-                  minWidth: 130,
-                  "& .MuiOutlinedInput-root": {
-                    borderRadius: "10px",
-                    bgcolor: "rgba(30,91,67,0.05)",
-                    "& fieldset": { borderColor: "rgba(30,91,67,0.15)" },
-                  },
-                }}
-                InputProps={{ startAdornment: <Language sx={{ mr: 1, fontSize: 18, color: "primary.main" }} /> }}
-              >
-                {locales.map((loc) => (
-                  <MenuItem key={loc} value={loc}>{localeLabels[loc]}</MenuItem>
-                ))}
-              </TextField>
-            </Stack>
-
-            {/* Mobile menu button */}
-            <IconButton
-              sx={{ display: { xs: "flex", md: "none" } }}
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <Menu />
-            </IconButton>
-          </Toolbar>
-        </Container>
-      </AppBar>
-
-      {/* Mobile Drawer */}
-      <Drawer
-        anchor={locale === "ar" ? "right" : "left"}
-        open={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-        PaperProps={{ sx: { width: 280, p: 3 } }}
-      >
-        <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
-          <Typography fontWeight={800} color="primary.main">Gaia Nexus</Typography>
-          <IconButton onClick={() => setMobileMenuOpen(false)}><Close /></IconButton>
-        </Stack>
-        <Stack spacing={1}>
-          {navLinks.map((link) => (
-            <Button
-              key={link.href}
-              href={link.href}
-              fullWidth
-              color="inherit"
-              sx={{ justifyContent: "flex-start", fontWeight: 600 }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.label}
-            </Button>
-          ))}
-          <Button
-            href="#contact"
-            variant="contained"
-            fullWidth
-            sx={{ mt: 1 }}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {t.nav.contact}
-          </Button>
-          <Divider sx={{ my: 1 }} />
-          <TextField
-            select
-            size="small"
-            fullWidth
-            value={locale}
-            onChange={(e) => setLocale(e.target.value as Locale)}
-            label="Language"
-          >
-            {locales.map((loc) => (
-              <MenuItem key={loc} value={loc}>{localeLabels[loc]}</MenuItem>
-            ))}
-          </TextField>
-        </Stack>
-      </Drawer>
+    <Box className="min-h-screen" sx={{ bgcolor: "transparent" }}>
+      <Navbar locale={locale} setLocale={setLocale} t={t} />
 
       {/* ── HERO ── */}
       <Box
         sx={{
-          background: "linear-gradient(135deg, #0D2A1E 0%, #123828 40%, #1E5B43 75%, #195B8A 100%)",
           position: "relative",
           overflow: "hidden",
           pt: { xs: 8, md: 12 },
           pb: { xs: 8, md: 12 },
         }}
       >
+        {/* Background photo */}
+        <Image
+          src="/assets/hero-banner-1.png"
+          alt=""
+          fill
+          priority
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        {/* Brand color overlay for contrast */}
+        <Box sx={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(135deg, rgba(13,42,30,0.97) 0%, rgba(18,56,40,0.95) 40%, rgba(30,91,67,0.94) 75%, rgba(25,91,138,0.94) 100%)",
+          pointerEvents: "none",
+        }} />
         {/* Decorative circles */}
         <Box sx={{
           position: "absolute", top: -80, right: -80, width: 400, height: 400,
@@ -343,16 +134,16 @@ export default function Home() {
 
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2} mb={7}>
                 <Button
-                  href="#contact"
+                  href="/assets/gaianexus-brochure.pdf"
+                  download
                   variant="contained"
                   size="large"
+                  startIcon={<Download />}
                   sx={{
-                    bgcolor: "white",
-                    color: "primary.dark",
+                    color: "white",
                     fontWeight: 700,
                     px: 4,
                     py: 1.5,
-                    "&:hover": { bgcolor: "#E8F3EC" },
                     boxShadow: "0 8px 24px rgba(0,0,0,0.18)",
                   }}
                 >
@@ -477,6 +268,79 @@ export default function Home() {
                   ))}
                 </Stack>
               </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* ── VISION ── */}
+      <Box sx={{ position: "relative", overflow: "hidden", py: { xs: 7, md: 10 } }}>
+        <Image
+          src="/assets/hero-banner-2.png"
+          alt=""
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        <Box sx={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(135deg, rgba(13,42,30,0.96) 0%, rgba(18,56,40,0.94) 45%, rgba(25,91,138,0.92) 100%)",
+          pointerEvents: "none",
+        }} />
+        <Container maxWidth="xl" sx={{ position: "relative" }}>
+          <Grid container spacing={{ xs: 5, md: 8 }} alignItems="center">
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Typography
+                variant="overline"
+                sx={{ color: "#6ECFA0", fontWeight: 800, letterSpacing: "0.16em", display: "block", fontSize: "0.72rem" }}
+              >
+                {t.vision.eyebrow}
+              </Typography>
+              <Typography variant="h2" sx={{ mt: 1.5, mb: 3, maxWidth: 560, color: "white" }}>
+                {t.vision.title}
+              </Typography>
+              <Typography
+                variant="h6"
+                component="p"
+                sx={{
+                  color: "rgba(255,255,255,0.85)",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                  lineHeight: 1.8,
+                  borderLeft: "3px solid",
+                  borderColor: "#6ECFA0",
+                  pl: 3,
+                  maxWidth: 560,
+                  fontSize: { xs: "1rem", md: "1.15rem" },
+                }}
+              >
+                &ldquo;{t.vision.quote}&rdquo;
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Grid container spacing={2}>
+                {t.vision.impact.map((item) => (
+                  <Grid key={item} size={{ xs: 12, sm: 6 }}>
+                    <Paper
+                      elevation={0}
+                      sx={{
+                        p: 2.5,
+                        height: "100%",
+                        borderRadius: "16px",
+                        border: "1px solid rgba(255,255,255,0.18)",
+                        bgcolor: "rgba(255,255,255,0.10)",
+                        backdropFilter: "blur(8px)",
+                      }}
+                    >
+                      <Stack direction="row" spacing={1.5} alignItems="flex-start">
+                        <CheckCircle sx={{ color: "#6ECFA0", fontSize: 20, mt: "1px", flexShrink: 0 }} />
+                        <Typography fontWeight={600} sx={{ fontSize: "0.92rem", lineHeight: 1.5, color: "white" }}>
+                          {item}
+                        </Typography>
+                      </Stack>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
             </Grid>
           </Grid>
         </Container>
@@ -772,16 +636,51 @@ export default function Home() {
         </Container>
       </Box>
 
+      {/* ── FIELD VISUAL BANNER ── */}
+      <Box sx={{ position: "relative", height: { xs: 280, md: 420 }, overflow: "hidden" }}>
+        <Image
+          src="/assets/bg3.png"
+          alt="Systemic farming in the field — defense priming and harvest"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(180deg, rgba(13,42,30,0.15) 0%, rgba(13,42,30,0.85) 100%)",
+          }}
+        />
+        <Container maxWidth="xl" sx={{ position: "relative", height: "100%", display: "flex", alignItems: "flex-end", pb: { xs: 4, md: 6 } }}>
+          <Typography
+            variant="h4"
+            sx={{ color: "white", fontWeight: 800, maxWidth: 600, lineHeight: 1.25, fontSize: { xs: "1.6rem", md: "2.2rem" } }}
+          >
+            {t.technology.process.title}
+          </Typography>
+        </Container>
+      </Box>
+
       {/* ── BENEFITS ── */}
       <Box
         id="benefits"
         sx={{
           py: { xs: 9, md: 14 },
-          background: "linear-gradient(135deg, #0D2A1E 0%, #1E5B43 60%, #195B8A 100%)",
           position: "relative",
           overflow: "hidden",
         }}
       >
+        <Image
+          src="/assets/hero-banner-3.png"
+          alt=""
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        <Box sx={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(135deg, rgba(13,42,30,0.95) 0%, rgba(30,91,67,0.93) 60%, rgba(25,91,138,0.93) 100%)",
+          pointerEvents: "none",
+        }} />
         <Box sx={{
           position: "absolute", inset: 0, opacity: 0.03,
           backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
@@ -856,7 +755,23 @@ export default function Home() {
 
           <Grid container spacing={3}>
             {t.products.items.map((item, i) => {
-              const productIcons = [<WbSunny key="ws" />, <Biotech key="bt" />, <Forest key="fo" />];
+              const productImages: Record<number, string> = {
+                0: "/assets/aman-bio-vaccine.png",
+                1: "/assets/aman-bio-cocktail.png",
+                2: "/assets/bacillus-subtilis-seaweed.png",
+              };
+              const productIcons = [
+                <WbSunny key="ws" />,
+                <Biotech key="bt" />,
+                <Forest key="fo" />,
+                <Biotech key="bcp" />,
+                <WaterDrop key="oc" />,
+                <Forest key="td" />,
+                <Science key="te" />,
+                <AutoAwesome key="np" />,
+                <Agriculture key="tf" />,
+                <Spa key="tc" />,
+              ];
               const gradients = [
                 "linear-gradient(135deg, rgba(30,91,67,0.06) 0%, rgba(30,91,67,0.02) 100%)",
                 "linear-gradient(135deg, rgba(25,91,138,0.06) 0%, rgba(25,91,138,0.02) 100%)",
@@ -867,38 +782,57 @@ export default function Home() {
                 { bgcolor: "rgba(25,91,138,0.08)", color: "secondary.main" },
                 { bgcolor: "rgba(138,90,43,0.08)", color: "#6E4A2F" },
               ];
+              const avatarColors = [
+                { bgcolor: "rgba(30,91,67,0.10)", color: "primary.main" },
+                { bgcolor: "rgba(25,91,138,0.10)", color: "secondary.main" },
+                { bgcolor: "rgba(138,90,43,0.10)", color: "#8A5A2B" },
+              ];
+              const palette = i % 3;
+              const image = productImages[i];
               return (
-                <Grid key={item.name} size={{ xs: 12, md: 4 }}>
+                <Grid key={item.name} size={{ xs: 12, sm: 6, md: 4 }}>
                   <Card
                     sx={{
                       height: "100%",
                       borderRadius: "20px",
                       border: "1px solid rgba(30,91,67,0.08)",
-                      background: gradients[i],
+                      background: gradients[palette],
                       transition: "box-shadow 0.2s, transform 0.2s",
                       "&:hover": { boxShadow: "0 16px 48px rgba(30,91,67,0.12)", transform: "translateY(-4px)" },
+                      overflow: "hidden",
                     }}
                   >
+                    {image && (
+                      <Box sx={{ position: "relative", height: 240, width: "100%" }}>
+                        <Image
+                          src={image}
+                          alt={item.name}
+                          fill
+                          style={{ objectFit: "cover", objectPosition: "top center" }}
+                        />
+                      </Box>
+                    )}
                     <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-                      <Avatar
-                        variant="rounded"
-                        sx={{
-                          width: 56,
-                          height: 56,
-                          mb: 2.5,
-                          bgcolor: i === 1 ? "rgba(25,91,138,0.10)" : i === 2 ? "rgba(138,90,43,0.10)" : "rgba(30,91,67,0.10)",
-                          color: i === 1 ? "secondary.main" : i === 2 ? "#8A5A2B" : "primary.main",
-                          borderRadius: "16px",
-                        }}
-                      >
-                        {productIcons[i]}
-                      </Avatar>
+                      {!image && (
+                        <Avatar
+                          variant="rounded"
+                          sx={{
+                            width: 56,
+                            height: 56,
+                            mb: 2.5,
+                            borderRadius: "16px",
+                            ...avatarColors[palette],
+                          }}
+                        >
+                          {productIcons[i]}
+                        </Avatar>
+                      )}
                       <Chip
                         label={item.tag}
                         size="small"
                         sx={{
                           mb: 2,
-                          ...tagColors[i],
+                          ...tagColors[palette],
                           fontWeight: 600,
                           fontSize: "0.7rem",
                           borderRadius: "6px",
@@ -938,89 +872,84 @@ export default function Home() {
         </Container>
       </Box>
 
+      {/* ── MARKETING PARTNERS ── */}
+      <Box sx={{ py: { xs: 9, md: 14 }, bgcolor: "white" }}>
+        <Container maxWidth="xl">
+          <Box sx={{ textAlign: "center", maxWidth: 720, mx: "auto", mb: { xs: 6, md: 8 } }}>
+            <SectionEyebrow>{t.partners.eyebrow}</SectionEyebrow>
+            <Typography variant="h2" sx={{ mt: 1.5, mb: 2 }}>
+              {t.partners.title}
+            </Typography>
+            <Typography color="text.secondary" sx={{ lineHeight: 1.75 }}>
+              {t.partners.subtitle}
+            </Typography>
+          </Box>
+
+          <Grid container spacing={3}>
+            {(() => {
+              const partnerIcons = [<Biotech key="ba" />, <Agriculture key="rd" />, <Spa key="ad" />, <EmojiNature key="fc" />];
+              const avatarColors = [
+                { bgcolor: "rgba(30,91,67,0.10)", color: "primary.main" },
+                { bgcolor: "rgba(25,91,138,0.10)", color: "secondary.main" },
+                { bgcolor: "rgba(138,90,43,0.10)", color: "#8A5A2B" },
+                { bgcolor: "rgba(110,207,160,0.18)", color: "primary.dark" },
+              ];
+              return t.partners.items.map((partner, i) => (
+                <Grid key={partner.name} size={{ xs: 12, sm: 6, md: 3 }}>
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      p: 3.5,
+                      height: "100%",
+                      textAlign: "center",
+                      borderRadius: "20px",
+                      border: "1px solid rgba(30,91,67,0.08)",
+                    }}
+                  >
+                    <Avatar sx={{ width: 56, height: 56, mx: "auto", mb: 2, ...avatarColors[i % avatarColors.length] }}>
+                      {partnerIcons[i % partnerIcons.length]}
+                    </Avatar>
+                    <Typography fontWeight={700} sx={{ mb: 0.5 }}>
+                      {partner.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {partner.role}
+                    </Typography>
+                  </Paper>
+                </Grid>
+              ));
+            })()}
+          </Grid>
+
+          <Box sx={{ textAlign: "center", mt: 5 }}>
+            <Button
+              href="/#contact"
+              variant="contained"
+              size="large"
+              sx={{ fontWeight: 700, px: 4, color: "white" }}
+            >
+              {t.partners.cta}
+            </Button>
+          </Box>
+        </Container>
+      </Box>
+
       {/* ── CONTACT ── */}
       <Box id="contact" sx={{ py: { xs: 9, md: 14 }, bgcolor: "#F4F8F5" }}>
         <Container maxWidth="xl">
-          <Grid container spacing={{ xs: 6, md: 8 }} alignItems="stretch">
-            {/* Info panel */}
+          <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
+            {/* Intro */}
             <Grid size={{ xs: 12, md: 5 }}>
-              <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-                <SectionEyebrow>{t.contact.eyebrow}</SectionEyebrow>
-                <Typography variant="h2" sx={{ mt: 1.5, mb: 2.5, maxWidth: 440 }}>
-                  {t.contact.title}
-                </Typography>
-                <Typography color="text.secondary" sx={{ lineHeight: 1.75, mb: 4 }}>
-                  {t.contact.body}
-                </Typography>
-
-                <Stack spacing={3} sx={{ mb: 4 }}>
-                  <Stack direction="row" spacing={2} alignItems="center">
-                    <Box
-                      sx={{
-                        width: 44,
-                        height: 44,
-                        borderRadius: "12px",
-                        bgcolor: "rgba(30,91,67,0.08)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <MailOutline sx={{ color: "primary.main", fontSize: 20 }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="caption" color="text.secondary" display="block" fontWeight={600}>
-                        {t.contact.info.email_label}
-                      </Typography>
-                      <Typography fontWeight={600} color="primary.main">{t.contact.info.email}</Typography>
-                    </Box>
-                  </Stack>
-                  <Stack direction="row" spacing={2} alignItems="center">
-                    <Box
-                      sx={{
-                        width: 44,
-                        height: 44,
-                        borderRadius: "12px",
-                        bgcolor: "rgba(30,91,67,0.08)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <PhoneInTalk sx={{ color: "primary.main", fontSize: 20 }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="caption" color="text.secondary" display="block" fontWeight={600}>
-                        {t.contact.info.phone_label}
-                      </Typography>
-                      <Typography fontWeight={600}>{t.contact.info.phone}</Typography>
-                    </Box>
-                  </Stack>
-                </Stack>
-
-                <Box
-                  sx={{
-                    p: 3,
-                    borderRadius: "16px",
-                    bgcolor: "rgba(30,91,67,0.06)",
-                    border: "1px solid rgba(30,91,67,0.10)",
-                    mt: "auto",
-                  }}
-                >
-                  <Typography variant="caption" color="text.secondary" display="block" fontWeight={700} mb={0.5}>
-                    {t.contact.info.collab_label}
-                  </Typography>
-                  <Typography fontWeight={700} color="primary.main">{t.contact.info.collab}</Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ mt: 0.75, lineHeight: 1.6 }}>
-                    {t.contact.brochureLabel} and contact requests are managed in the same form.
-                  </Typography>
-                </Box>
-              </Box>
+              <SectionEyebrow>{t.contact.eyebrow}</SectionEyebrow>
+              <Typography variant="h2" sx={{ mt: 1.5, mb: 2.5, maxWidth: 440 }}>
+                {t.contact.title}
+              </Typography>
+              <Typography color="text.secondary" sx={{ lineHeight: 1.75 }}>
+                {t.contact.body}
+              </Typography>
             </Grid>
 
-            {/* Contact form */}
+            {/* Contact details */}
             <Grid size={{ xs: 12, md: 7 }}>
               <Paper
                 elevation={0}
@@ -1032,319 +961,192 @@ export default function Home() {
                   boxShadow: "0 20px 60px rgba(30,91,67,0.08)",
                 }}
               >
-                <Box component="form" onSubmit={handleSubmit}>
-                  <Grid container spacing={2.5}>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField
-                        fullWidth
-                        required
-                        name="fullName"
-                        label={t.contact.fields.fullName}
-                        sx={{ "& .MuiOutlinedInput-root": { borderRadius: "12px" } }}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField
-                        fullWidth
-                        required
-                        type="email"
-                        name="email"
-                        label={t.contact.fields.email}
-                        sx={{ "& .MuiOutlinedInput-root": { borderRadius: "12px" } }}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField
-                        fullWidth
-                        name="company"
-                        label={t.contact.fields.company}
-                        sx={{ "& .MuiOutlinedInput-root": { borderRadius: "12px" } }}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField
-                        fullWidth
-                        name="phone"
-                        label={t.contact.fields.phone}
-                        sx={{ "& .MuiOutlinedInput-root": { borderRadius: "12px" } }}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField
-                        fullWidth
-                        select
-                        name="interest"
-                        defaultValue={interestOptions[0]}
-                        label={t.contact.fields.interest}
-                        sx={{ "& .MuiOutlinedInput-root": { borderRadius: "12px" } }}
-                      >
-                        {interestOptions.map((option) => (
-                          <MenuItem key={option} value={option}>{option}</MenuItem>
-                        ))}
-                      </TextField>
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField
-                        fullWidth
-                        required
-                        multiline
-                        minRows={4}
-                        name="message"
-                        label={t.contact.fields.message}
-                        sx={{ "& .MuiOutlinedInput-root": { borderRadius: "12px" } }}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
+                <Grid container spacing={3}>
+                  <Grid size={{ xs: 12, sm: 6 }}>
+                    <Stack direction="row" spacing={2} alignItems="center">
                       <Box
                         sx={{
-                          p: 2,
+                          width: 44,
+                          height: 44,
                           borderRadius: "12px",
-                          bgcolor: "rgba(30,91,67,0.04)",
-                          border: "1px solid rgba(30,91,67,0.10)",
+                          bgcolor: "rgba(30,91,67,0.08)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
                         }}
                       >
-                        <FormControlLabel
-                          control={<Switch name="requestBrochure" color="primary" />}
-                          label={
-                            <Typography variant="body2" fontWeight={600}>
-                              {t.contact.fields.brochure}
-                            </Typography>
-                          }
-                        />
+                        <MailOutline sx={{ color: "primary.main", fontSize: 20 }} />
                       </Box>
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems="flex-start">
-                        <Button
-                          type="submit"
-                          variant="contained"
-                          size="large"
-                          disabled={formState.status === "submitting"}
-                          sx={{ px: 4, py: 1.5, fontWeight: 700 }}
+                      <Box>
+                        <Typography variant="caption" color="text.secondary" display="block" fontWeight={600}>
+                          {t.contact.info.email_label}
+                        </Typography>
+                        <Typography
+                          component="a"
+                          href={`mailto:${t.contact.info.email}`}
+                          fontWeight={600}
+                          color="primary.main"
+                          sx={{ textDecoration: "none" }}
                         >
-                          {formState.status === "submitting"
-                            ? t.contact.fields.sending
-                            : t.contact.fields.submit}
-                        </Button>
-                        {formState.status === "success" && (
-                          <Alert
-                            severity="success"
-                            sx={{ borderRadius: "12px", flex: 1, alignItems: "center" }}
+                          {t.contact.info.email}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </Grid>
+                  <Grid size={{ xs: 12, sm: 6 }}>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <Box
+                        sx={{
+                          width: 44,
+                          height: 44,
+                          borderRadius: "12px",
+                          bgcolor: "rgba(30,91,67,0.08)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Language sx={{ color: "primary.main", fontSize: 20 }} />
+                      </Box>
+                      <Box>
+                        <Typography variant="caption" color="text.secondary" display="block" fontWeight={600}>
+                          {t.contact.info.website_label}
+                        </Typography>
+                        <Typography
+                          component="a"
+                          href={`https://${t.contact.info.website}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          fontWeight={600}
+                          sx={{ textDecoration: "none", color: "text.primary" }}
+                        >
+                          {t.contact.info.website}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </Grid>
+                  {t.contact.info.phones.map((phone) => (
+                    <Grid key={phone} size={{ xs: 12, sm: 6 }}>
+                      <Stack direction="row" spacing={2} alignItems="center">
+                        <Box
+                          sx={{
+                            width: 44,
+                            height: 44,
+                            borderRadius: "12px",
+                            bgcolor: "rgba(30,91,67,0.08)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexShrink: 0,
+                          }}
+                        >
+                          <PhoneInTalk sx={{ color: "primary.main", fontSize: 20 }} />
+                        </Box>
+                        <Box>
+                          <Typography variant="caption" color="text.secondary" display="block" fontWeight={600}>
+                            {t.contact.info.phone_label}
+                          </Typography>
+                          <Typography
+                            component="a"
+                            href={`tel:${phone.replace(/\s+/g, "")}`}
+                            fontWeight={600}
+                            sx={{ textDecoration: "none", color: "text.primary" }}
                           >
-                            {formState.message}
-                          </Alert>
-                        )}
-                        {formState.status === "error" && (
-                          <Alert
-                            severity="error"
-                            sx={{ borderRadius: "12px", flex: 1, alignItems: "center" }}
-                          >
-                            {formState.message}
-                          </Alert>
-                        )}
+                            {phone}
+                          </Typography>
+                        </Box>
                       </Stack>
                     </Grid>
-                  </Grid>
+                  ))}
+                </Grid>
+
+                <Box
+                  sx={{
+                    mt: 3,
+                    p: 3,
+                    borderRadius: "16px",
+                    bgcolor: "rgba(30,91,67,0.06)",
+                    border: "1px solid rgba(30,91,67,0.10)",
+                  }}
+                >
+                  <Typography variant="caption" color="text.secondary" display="block" fontWeight={700} mb={0.5}>
+                    {t.contact.info.collab_label}
+                  </Typography>
+                  <Typography fontWeight={700} color="primary.main">{t.contact.info.collab}</Typography>
                 </Box>
+
+                <Button
+                  href="/assets/gaianexus-brochure.pdf"
+                  download
+                  variant="contained"
+                  size="large"
+                  fullWidth
+                  startIcon={<Download />}
+                  sx={{ mt: 3, fontWeight: 700, py: 1.4 }}
+                >
+                  {t.hero.cta_primary}
+                </Button>
               </Paper>
             </Grid>
           </Grid>
         </Container>
       </Box>
 
-      {/* ── FOOTER ── */}
-      <Box
-        component="footer"
-        sx={{
-          bgcolor: "#0D2A1E",
-          color: "white",
-          pt: { xs: 8, md: 10 },
-          pb: { xs: 5, md: 6 },
-        }}
-      >
-        <Container maxWidth="xl">
-          <Grid container spacing={{ xs: 5, md: 6 }} sx={{ mb: { xs: 6, md: 8 } }}>
-            {/* Brand column */}
-            <Grid size={{ xs: 12, md: 4 }}>
-              <Stack direction="row" spacing={1.5} alignItems="center" mb={2.5}>
-                <Box
-                  sx={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: "10px",
-                    background: "linear-gradient(135deg, #1E5B43 0%, #2D8C5E 100%)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <EmojiNature sx={{ color: "white", fontSize: 20 }} />
-                </Box>
-                <Box>
-                  <Typography fontWeight={800} sx={{ lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-                    Gaia Nexus
-                  </Typography>
-                  <Typography sx={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.45)" }}>
-                    Private Limited
-                  </Typography>
-                </Box>
-              </Stack>
-              <Typography
-                sx={{
-                  color: "#6ECFA0",
-                  fontWeight: 600,
-                  fontSize: "0.9rem",
-                  mb: 2,
-                  fontStyle: "italic",
-                }}
-              >
-                {t.footer.tagline}
-              </Typography>
-              <Typography sx={{ color: "rgba(255,255,255,0.50)", fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 320 }}>
-                {t.footer.description}
-              </Typography>
-            </Grid>
-
-            {/* Navigation */}
-            <Grid size={{ xs: 6, md: 2 }}>
-              <Typography
-                fontWeight={700}
-                sx={{ mb: 2.5, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}
-              >
-                {t.footer.nav_title}
-              </Typography>
-              <Stack spacing={1.5}>
-                {[
-                  { label: t.footer.links[0], href: "#story" },
-                  { label: t.footer.links[1], href: "#technology" },
-                  { label: t.footer.links[2], href: "#benefits" },
-                  { label: t.footer.links[3], href: "#contact" },
-                ].map((link) => (
-                  <Button
-                    key={link.href}
-                    href={link.href}
-                    sx={{
-                      color: "rgba(255,255,255,0.60)",
-                      justifyContent: "flex-start",
-                      p: 0,
-                      minWidth: 0,
-                      fontSize: "0.88rem",
-                      fontWeight: 500,
-                      "&:hover": { color: "#6ECFA0", bgcolor: "transparent" },
-                    }}
-                  >
-                    {link.label}
-                  </Button>
-                ))}
-              </Stack>
-            </Grid>
-
-            {/* Contact */}
-            <Grid size={{ xs: 6, md: 3 }}>
-              <Typography
-                fontWeight={700}
-                sx={{ mb: 2.5, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}
-              >
-                {t.footer.contact_title}
-              </Typography>
-              <Stack spacing={2}>
-                <Stack direction="row" spacing={1.5} alignItems="center">
-                  <MailOutline sx={{ fontSize: 16, color: "#6ECFA0" }} />
-                  <Typography sx={{ color: "rgba(255,255,255,0.60)", fontSize: "0.85rem" }}>
-                    hello@gaianexus.com
-                  </Typography>
-                </Stack>
-                <Typography sx={{ color: "rgba(255,255,255,0.40)", fontSize: "0.82rem", lineHeight: 1.6 }}>
-                  {t.footer.collaboration}
-                </Typography>
-              </Stack>
-            </Grid>
-
-            {/* CTA panel */}
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Box
-                sx={{
-                  p: 3,
-                  borderRadius: "16px",
-                  bgcolor: "rgba(30,91,67,0.35)",
-                  border: "1px solid rgba(110,207,160,0.15)",
-                }}
-              >
-                <Typography fontWeight={700} sx={{ mb: 1, fontSize: "0.95rem" }}>
-                  Ready to transform your farm?
-                </Typography>
-                <Typography sx={{ color: "rgba(255,255,255,0.55)", fontSize: "0.82rem", mb: 2.5, lineHeight: 1.6 }}>
-                  Request our product brochure and speak with our team.
-                </Typography>
-                <Button
-                  href="#contact"
-                  variant="outlined"
-                  size="small"
-                  fullWidth
-                  sx={{
-                    color: "#6ECFA0",
-                    borderColor: "rgba(110,207,160,0.35)",
-                    fontWeight: 700,
-                    "&:hover": { bgcolor: "rgba(110,207,160,0.10)", borderColor: "#6ECFA0" },
-                  }}
-                >
-                  {t.contact.brochureLabel}
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
-
-          <Divider sx={{ borderColor: "rgba(255,255,255,0.08)", mb: 4 }} />
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            justifyContent="space-between"
-            alignItems={{ xs: "flex-start", sm: "center" }}
-            spacing={2}
+      {/* ── CTA BANNER ── */}
+      <Box sx={{ position: "relative", overflow: "hidden", py: { xs: 8, md: 11 } }}>
+        <Image
+          src="/assets/bg2.png"
+          alt=""
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        <Box sx={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(135deg, rgba(13,42,30,0.97) 0%, rgba(30,91,67,0.96) 60%, rgba(25,91,138,0.95) 100%)",
+          pointerEvents: "none",
+        }} />
+        <Container maxWidth="md" sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+          <Typography
+            variant="h2"
+            sx={{ color: "white", fontWeight: 800, fontSize: { xs: "1.9rem", md: "2.6rem" }, mb: 2, letterSpacing: "-0.01em" }}
           >
-            <Typography sx={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8rem" }}>
-              © {new Date().getFullYear()} {t.footer.copyright}
-            </Typography>
-            <Stack direction="row" spacing={0.5}>
-              {locales.map((loc) => (
-                <Button
-                  key={loc}
-                  size="small"
-                  onClick={() => setLocale(loc)}
-                  sx={{
-                    color: locale === loc ? "#6ECFA0" : "rgba(255,255,255,0.35)",
-                    fontWeight: locale === loc ? 700 : 400,
-                    minWidth: 0,
-                    px: 1,
-                    fontSize: "0.78rem",
-                    "&:hover": { color: "#6ECFA0", bgcolor: "transparent" },
-                  }}
-                >
-                  {localeLabels[loc]}
-                </Button>
-              ))}
-            </Stack>
+            {t.contact.title}
+          </Typography>
+          <Typography sx={{ color: "rgba(255,255,255,0.78)", fontSize: "1.05rem", mb: 4, maxWidth: 560, mx: "auto", lineHeight: 1.7 }}>
+            {t.contact.body}
+          </Typography>
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center">
+            <Button
+              href="/assets/gaianexus-brochure.pdf"
+              download
+              variant="contained"
+              size="large"
+              startIcon={<Download />}
+              sx={{
+                color: "white", fontWeight: 700, px: 4,
+              }}
+            >
+              {t.contact.brochureLabel}
+            </Button>
+            <Button
+              href="tel:+917708240744"
+              variant="outlined"
+              size="large"
+              startIcon={<PhoneInTalk />}
+              sx={{
+                color: "white", borderColor: "rgba(255,255,255,0.4)", fontWeight: 700, px: 4,
+                "&:hover": { borderColor: "white", bgcolor: "rgba(255,255,255,0.08)" },
+              }}
+            >
+              {t.contact.info.phone_label}
+            </Button>
           </Stack>
         </Container>
       </Box>
+
+      <Footer locale={locale} setLocale={setLocale} t={t} />
     </Box>
-  );
-}
-
-/* ── Reusable components ── */
-
-function SectionEyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <Typography
-      variant="overline"
-      sx={{
-        color: "primary.main",
-        fontWeight: 800,
-        letterSpacing: "0.16em",
-        display: "block",
-        fontSize: "0.72rem",
-      }}
-    >
-      {children}
-    </Typography>
   );
 }
