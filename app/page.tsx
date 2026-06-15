@@ -1136,7 +1136,7 @@ export default function Home() {
               size="large"
               startIcon={<PhoneInTalk />}
               sx={{
-                color: "white", borderColor: "rgba(255,255,255,0.4)", fontWeight: 700, px: 4,
+                color: "white !important", borderColor: "rgba(255,255,255,0.4)", fontWeight: 700, px: 4,
                 "&:hover": { borderColor: "white", bgcolor: "rgba(255,255,255,0.08)" },
               }}
             >
